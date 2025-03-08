@@ -3,7 +3,6 @@ import pytest
 from selenium.webdriver.chrome.options import Options
 from selene import Browser, Config
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 
 
 @pytest.fixture(scope='function')
@@ -11,7 +10,8 @@ def setup_browser(request):
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
-        "browserVersion": "100.0",
+        #"browserVersion": "100.0",
+        "browserVersion": "134.0.6998.35",
         "selenoid:options": {
             "enableVNC": True,
             "enableVideo": True
