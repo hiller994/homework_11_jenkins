@@ -9,9 +9,9 @@ from selenium import webdriver
 def setup_browser(request):
     options = Options()
     selenoid_capabilities = {
-        "browserName": "chrome",
+        "browserName": "opera",
         #"browserVersion": "100.0",
-        "browserVersion": "126.0",
+        "browserVersion": "106.0",
         "selenoid:options": {
             "enableVNC": True,
             "enableVideo": True
