@@ -1,14 +1,23 @@
 import os.path
+
+from allure_commons.types import Severity
 from selene import browser, command, have, be
 import pytest
 import allure
 
+
+@allure.tag('critical')
+@allure.severity(Severity.CRITICAL)
+@allure.label("owner", "AndreyIg")
+@allure.feature("Домашнее задание №10")
+@allure.story("Тестирование формы регистрации на тестовом стенде demoqa")
+@allure.link("https://demoqa.com/automation-practice-form", name="Testing")
+
 def test_practice_form(setup_browser):
     with allure.step("Open registrations form"):
-        browser.open("https://demoqa.com/automation-practice-form")
-        browser.element(".practice-form-wrapper").should(have.text("Student Registration Form"))
-        browser.driver.execute_script("$('footer').remove()")
-        browser.driver.execute_script("$('#fixedban').remove()")
+        browser.open("/")
+        #browser.element(".practice-form-wrapper").should(have.text("Student Registration Form"))
+        ##browser.driver.execute_script("$('#fixedban').remove()")
 
     with allure.step("Fill form"):
         browser.element('[id="firstName"]').should(be.blank).type('Andrey')

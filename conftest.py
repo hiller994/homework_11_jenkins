@@ -7,7 +7,12 @@ from utils import attach
 @pytest.fixture(scope='function', autouse=True)
 def setup_browser():
     driver_options = webdriver.ChromeOptions()
+    # driver_options.add_argument('--headless')  #скрыть браузер
     driver_options.page_load_strategy = 'eager'
+    browser.config.driver_options = driver_options  # сам запуск|
+    browser.config.window_height = 1920  # высота браузера
+    browser.config.window_width = 1080  # ширина браузера
+    browser.config.base_url = 'https://demoqa.com'
 
     options = Options()
     selenoid_capabilities = {
